@@ -1,0 +1,87 @@
+.layout-notification
+  .chat
+    .chat-side
+      .chat-user
+        .chat-user__name
+          %h5 User Name
+        .chat-user__actions
+          .chat-user__action
+            %i.fa.fa-pencil-square-o
+            %i.fa.fa-cog
+      %ul.chat-groups
+        %li.chat-groups__list
+          .chat-group
+            .chat-group__name
+              %p Tech_master_team
+            .chat-group__latest-message
+              %p testですこれはテストです
+          .chat-group
+            .chat-group__name
+              %p Tech_master_team
+            .chat-group__latest-message
+              %p testですこれはテストです
+          .chat-group
+            .chat-group__name
+              %p Tech_master_team
+            .chat-group__latest-message
+              %p testですこれはテストです
+    .chat-main
+      .chat-header
+        .chat-header__left
+          .chat-group-name
+            %h2 Sampleのグループ
+          .chat-group-member
+            %p Member: aaa, bbb, ccc
+        .chat-header__right Edit
+      %hr
+      .chat-body
+        %ul.chat-messages
+          %li.chat-messages__list
+            .chat-message
+              .chat-message__name-and-time
+                .user-name
+                  %p hironokawashima
+                .time
+                  %p 2016/11/11 09:00:00
+              .chat-message__message
+                %p おはようございます
+            .chat-message
+              .chat-message__name-and-time
+                .user-name
+                  %p hironokawashima
+                .time
+                  %p 2016/11/11 09:00:00
+              .chat-message__message
+                %p こんにちは
+            .chat-message
+              .chat-message__name-and-time
+                .user-name
+                  %p hironokawashima
+                .time
+                  %p 2016/11/11 09:00:00
+              .chat-message__message
+                %p こんばんは
+            .chat-message
+              .chat-message__name-and-time
+                .user-name
+                  %p hironokawashima
+                .time
+                  %p 2016/11/11 09:00:00
+              .chat-message__message
+                %p こんばんは
+            .chat-message
+              .chat-message__name-and-time
+                .user-name
+                  %p hironokawashima
+                .time
+                  %p 2016/11/11 09:00:00
+              .chat-message__message
+                %p こんばんは
+      .chat-footer
+        .chat-footer__left
+          .message-form
+            %textarea{ placeholder: "  type a message",id: "message_form", rows: 1, style: "width: 600px; height: 50px; font-size: 16px;" }
+          .image_form
+            %i.fa.fa-image
+        .chat-footer__right
+          .send-button Send
