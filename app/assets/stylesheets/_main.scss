@@ -77,13 +77,15 @@ body {
           float: left;
           padding: 20px 40px 20px 40px;
           @include clearfix();
-          .message-form {
+          .message-form-area {
             float: left;
-            #message_form {
+            textarea {
               width: 60vw;
               line-height: 50px;
               border: none;
               font-size: $letterMiddle;
+              height: 50px;
+              font-size: 16px;
             }
           }
           .image_form {
@@ -91,8 +93,6 @@ body {
             margin-left: -40px;
             line-height: 50px;
             color: $letterDarkGray;
-            #image_form {
-            }
           }
         }
         &__right {
