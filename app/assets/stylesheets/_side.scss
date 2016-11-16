@@ -6,7 +6,6 @@
   .chat-user {
     @include clearfix();
     position: fixed;
-    width: 100%;
     padding: 35px 20px 40px 20px;
     background-color: $sideDarkGray;
     color: $white;
