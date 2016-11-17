@@ -1,0 +1,110 @@
+body {
+  height: 100vh;
+  background-color: $lightGray;
+  .chat {
+    .chat-main {
+      position: relative;
+      float: left;
+      width: calc(100% - 300px);
+      .chat-header {
+        @include clearfix();
+        position: fixed;
+        width: calc(100% - 300px);
+        background-color: $white;
+        border: $whiteBorder;
+        &__left {
+          float: left;
+          margin: 35px 0 15px 40px;
+          .chat-group-name {
+            color: #333333;
+            font-size: 20px;
+          }
+          .chat-group-member {
+            color: $letterLightGray;
+            font-size: $letterSmall;
+          }
+        }
+        &__right {
+          float: right;
+          margin: 28px 40px 0 0;
+          padding: 0px 20px;
+          line-height: 40px;
+          color: $blue;
+          font-size: $letterSmall;
+          border: $blueBorder;
+        }
+      }
+      .chat-body  {
+        margin-top: 80px;
+        .chat-messages {
+          padding: 26px 40px 0 40px;
+          &__list {
+            .chat-message {
+              padding: 20px 0;
+              &__name-and-time {
+              @include clearfix();
+                .user-name {
+                  font-size: $letterMiddle;
+                  float: left;
+                  color: $letterDarkGray;
+                  font-weight: bold;
+                }
+                .time {
+                  float: left;
+                  margin-left: 10px;
+                  line-height: 25px;
+                  font-size: $letterSmall;
+                  color: $letterLightGray;
+                }
+              }
+              &__message {
+                padding-top: 10px;
+                font-size: 14px;
+                margin-left: 0px;
+                color: $letterDarkGray;
+              }
+            }
+          }
+        }
+      }
+      .chat-footer {
+        @include clearfix;
+        position: fixed;
+        bottom: 0;
+        width: calc(100% - 300px);
+        background-color: $mildGray;
+        &__left {
+          float: left;
+          padding: 20px 40px 20px 40px;
+          @include clearfix();
+          .message-form-area {
+            float: left;
+            textarea {
+              width: 60vw;
+              line-height: 50px;
+              border: none;
+              font-size: $letterMiddle;
+              height: 50px;
+              font-size: 16px;
+            }
+          }
+          .image_form {
+            float: left;
+            margin-left: -40px;
+            line-height: 50px;
+            color: $letterDarkGray;
+          }
+        }
+        &__right {
+          float: right;
+          margin: 28px 40px 0 0;
+          padding: 0px 20px;
+          line-height: 40px;
+          background-color: $blue;
+          color: $white;
+          font-size: $letterSmall;
+        }
+      }
+    }
+  }
+}
