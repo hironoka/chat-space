@@ -1,0 +1,31 @@
+.alert-error {
+    background-color: $red;
+    border-color: #eed3d7;
+    text-align: left;
+ }
+
+.alert-alert {
+    background-color: $red;
+    border-color: #eed3d7;
+    text-align: left;
+ }
+
+.alert-success {
+    background-color: $blue;
+    border-color: #d6e9c6;
+    text-align: left;
+ }
+
+.alert-notice {
+    background-color: $blue;
+    text-align: left;
+ }
+
+.alert{
+    height: 30px;
+    line-height: 30px;
+    letter-spacing: 1px;
+    color: #fff;
+    font-weight: 200;
+    text-align: center;
+}
