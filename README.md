@@ -29,15 +29,15 @@
 |password|integer|null: false|
 
 ### index
-- user_id
-- group_id
+- email
 
 ### assosiation
  `has_many :messages`  
  `has_many :groups, through: :users_groups`
+ `has_many :user_groups`
 
 
-## users_groups table
+## user_groups table
 
 ### column
 |Column|Type|Restriction|
@@ -64,3 +64,4 @@
 ### assosiation
 `has_many :messages`  
 `has_many :users, through: :users_groups`
+`has_many :user_groups`
