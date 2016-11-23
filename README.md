@@ -34,10 +34,10 @@
 ### assosiation
  `has_many :messages`  
  `has_many :groups, through: :users_groups`
- `has_many :user_groups`
+ `has_many :users_groups`
 
 
-## user_groups table
+## users_groups table
 
 ### column
 |Column|Type|Restriction|
@@ -64,4 +64,4 @@
 ### assosiation
 `has_many :messages`  
 `has_many :users, through: :users_groups`
-`has_many :user_groups`
+`has_many :users_groups`
