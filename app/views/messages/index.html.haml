@@ -5,10 +5,12 @@
         %h5 User Name
       .chat-user__actions
         .chat-user__action
-          %i.fa.fa-pencil-square-o
+          %i
+          = link_to new_group_path do
+            .fa.fa-pencil-square-o.fa-inverse.fa-lg
           %i
           = link_to edit_user_registration_path do
-            .fa.fa-cog.fa.fa-cog.fa-inverse.fa-lg
+            .fa.fa-cog.fa-inverse.fa-lg
     %ul.chat-groups
       %li.chat-groups__list
         .chat-group
