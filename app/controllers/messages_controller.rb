@@ -3,7 +3,7 @@ class MessagesController < ApplicationController
    before_action :set_group
 
   def index
-    @groups = Group.all
+    @groups = current_user.groups
     @users = @group.users
   end
 
