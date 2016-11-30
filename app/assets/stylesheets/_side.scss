@@ -13,7 +13,7 @@
     color: $white;
     &__name {
       float: left;
-      color: white;
+      color: $white;
       h5 {
         font-size: $letterMiddle;
         font-weight: bold;
@@ -36,7 +36,7 @@
         text-decoration: none;
         }
         &__name {
-          font-color: white;
+          font-color: $white;
           font-size: 15px;
           padding-bottom: 5px;
         }
