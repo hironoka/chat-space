@@ -3,15 +3,7 @@
     = render partial: 'layouts/chat_side'
   .chat-main
     .chat-header
-      .chat-header__left
-        .chat-group-name
-          %h2
-          = @group.name
-        .chat-group-member
-          %span Member:
-          - @users.each do |user|
-            = user.name
-      .chat-header__right Edit
+      = render partial: 'layouts/chat_main_group'
     .chat-body
       %ul.chat-messages
         %li.chat-messages__list

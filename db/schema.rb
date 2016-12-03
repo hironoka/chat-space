@@ -53,4 +53,6 @@ ActiveRecord::Schema.define(version: 20161123071118) do
     t.index ["user_id"], name: "index_users_groups_on_user_id", using: :btree
   end
 
+  add_foreign_key "users_groups", "groups"
+  add_foreign_key "users_groups", "users"
 end

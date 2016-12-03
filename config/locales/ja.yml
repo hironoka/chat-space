@@ -144,7 +144,7 @@ ja:
     select:
       prompt: 選択してください
     submit:
-      create: 登録する
+      create: Save
       submit: 保存する
       update: 更新する
   number:

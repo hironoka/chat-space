@@ -5,12 +5,15 @@
   background-color: $sideLightGray;
   .chat-user {
     @include clearfix();
+    width: 100%;
+    height: 23px;
     position: fixed;
     padding: 35px 20px 40px 20px;
     background-color: $sideDarkGray;
     color: $white;
     &__name {
       float: left;
+      color: $white;
       h5 {
         font-size: $letterMiddle;
         font-weight: bold;
@@ -29,7 +32,11 @@
     &__list {
       .chat-group {
         padding: 20px 20px 40px 20px;
+        a {
+        text-decoration: none;
+        }
         &__name {
+          font-color: $white;
           font-size: 15px;
           padding-bottom: 5px;
         }
