@@ -11,7 +11,8 @@
           %span Member:
           - @users.each do |user|
             = user.name
-      .chat-header__right Edit
+      .chat-header__right
+        = link_to "Edit", edit_group_path(@group)
     .chat-body
       %ul.chat-messages
         %li.chat-messages__list
