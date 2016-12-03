@@ -1,5 +1,7 @@
 class GroupsController < ApplicationController
 
+  before_action :set_group, pnly: [:edit, :update]
+
   def index
     @groups = current_user.groups
   end
@@ -21,6 +23,11 @@ class GroupsController < ApplicationController
   end
 
   def update
+    if @group.update(group_params)
+      redirect_to :root
+    else
+      render edit_group_path
+    end
   end
 
   private
@@ -30,6 +37,10 @@ class GroupsController < ApplicationController
     :name,
     user_ids: []
     )
+  end
+
+  def set_group
+    @group = Group.find(params[:id])
   end
 
 end
