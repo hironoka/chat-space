@@ -15,7 +15,7 @@ class GroupsController < ApplicationController
     if @group.save
       redirect_to  group_messages_path(@group), notice: 'チャットグループが作成されました'
     else
-      redirect_to new_group_path, alert: 'もう一度入力してください'
+      render :new
     end
   end
 
@@ -26,7 +26,7 @@ class GroupsController < ApplicationController
     if @group.update(group_params)
       redirect_to group_messages_path(@group),  notice: 'チャットグループが更新されました'
     else
-      redirect_to edit_group_path, alert: 'もう一度入力してください'
+      render :edit
     end
   end
 
@@ -42,5 +42,7 @@ class GroupsController < ApplicationController
   def set_group
     @group = Group.find(params[:id])
   end
+
+
 
 end
