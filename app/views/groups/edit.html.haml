@@ -1,7 +1,13 @@
 .chat-group-form
-  %h1 新規チャットグループ
+  %h1 チャットグループ編集
   .new_chat_group{ "accept-charset": "UTF-8", action: "/chat_groups", method: "post"}
     = form_for @group do |f|
+      - if @group.errors.any?
+        .chat-group-form__errors
+          %h2= "#{pluralize(@group.errors.count, "error")} prohibited this group from being saved:"
+          %ul
+            - @group.errors.full_messages.each do |group|
+              %li= group
       .chat-group-form__field.clearfix
         .chat-group-form__field--left
           %label.chat-group-form__label{ for: "chat_group_name" } グループ名
