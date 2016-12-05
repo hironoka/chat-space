@@ -1,0 +1,5 @@
+.chat-group-form__errors
+  %h2= "#{pluralize(@group.errors.count, "error")} prohibited this group from being saved:"
+  %ul
+    - @group.errors.full_messages.each do |group|
+      %li= group

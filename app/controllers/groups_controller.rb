@@ -1,5 +1,7 @@
 class GroupsController < ApplicationController
 
+  before_action :set_group, only: [:edit, :update]
+
   def index
     @groups = current_user.groups
   end
@@ -11,9 +13,9 @@ class GroupsController < ApplicationController
   def create
     @group = Group.new(group_params)
     if @group.save
-      redirect_to :root
+      redirect_to  group_messages_path(@group), notice: 'チャットグループが作成されました'
     else
-      render new_group_path
+      render :new
     end
   end
 
@@ -21,6 +23,11 @@ class GroupsController < ApplicationController
   end
 
   def update
+    if @group.update(group_params)
+      redirect_to group_messages_path(@group),  notice: 'チャットグループが更新されました'
+    else
+      render :edit
+    end
   end
 
   private
@@ -31,5 +38,11 @@ class GroupsController < ApplicationController
     user_ids: []
     )
   end
+
+  def set_group
+    @group = Group.find(params[:id])
+  end
+
+
 
 end
