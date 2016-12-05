@@ -1,4 +1,4 @@
-.new_chat_group{ "accept-charset": "UTF-8", action: "/chat_groups", method: "post"}
+.new_chat_group
   = form_for @group do |f|
     - if @group.errors.any?
       = render 'error_message'
