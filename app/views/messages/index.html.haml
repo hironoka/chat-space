@@ -15,52 +15,15 @@
         = link_to "Edit", edit_group_path(@group)
     .chat-body
       %ul.chat-messages
-        %li.chat-messages__list
-          .chat-message
-            .chat-message__name-and-time
-              .user-name
-                %p hironokawashima
-              .time
-                %p 2016/11/11 09:00:00
-            .chat-message__message
-              %p おはようございます
-          .chat-message
-            .chat-message__name-and-time
-              .user-name
-                %p hironokawashima
-              .time
-                %p 2016/11/11 09:00:00
-            .chat-message__message
-              %p こんにちは
-          .chat-message
-            .chat-message__name-and-time
-              .user-name
-                %p hironokawashima
-              .time
-                %p 2016/11/11 09:00:00
-            .chat-message__message
-              %p こんばんは
-          .chat-message
-            .chat-message__name-and-time
-              .user-name
-                %p hironokawashima
-              .time
-                %p 2016/11/11 09:00:00
-            .chat-message__message
-              %p こんばんは
-          .chat-message
-            .chat-message__name-and-time
-              .user-name
-                %p hironokawashima
-              .time
-                %p 2016/11/11 09:00:00
-            .chat-message__message
-              %p こんばんは
+        = render @messages
     .chat-footer
-      .chat-footer__left
-        .message-form-area
-          %textarea{ placeholder: "  type a message", id: "message_form", rows: 1 }
-        .image_form
-          %i.fa.fa-image
-      .chat-footer__right
-        .send-button Send
+      = form_for [@group, @message] do |f|
+        = f.hidden_field :user_id, value: current_user.id
+        = f.hidden_field :group_id, value: @group.id
+        .chat-footer__left
+          .message-form-area
+            = f.text_area :body, placeholder: "type a message", id: "message_form", rows: 1
+          .image_form
+            %i.fa.fa-image
+        .chat-footer__right
+          = f.submit value: "Send", class: "send-button"

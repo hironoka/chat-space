@@ -1,5 +1,6 @@
 ja:
   attributes:
+    body: メッセージ
     name:  名前
     email:  メールアドレス
     password:  パスワード

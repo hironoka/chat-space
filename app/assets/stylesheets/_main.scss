@@ -74,38 +74,45 @@ body {
         @include clearfix;
         position: fixed;
         bottom: 0;
-        width: calc(100% - 300px);
+        padding: 20px 40px 20px 40px;
+        width: calc(100% - 115px);
         background-color: $mildGray;
         &__left {
           float: left;
-          padding: 20px 40px 20px 40px;
           @include clearfix();
           .message-form-area {
             float: left;
             textarea {
-              width: 60vw;
+              width: calc(100vw - 500px);
               line-height: 50px;
+              padding-left:10px;
               border: none;
               font-size: $letterMiddle;
               height: 50px;
-              font-size: 16px;
             }
           }
           .image_form {
             float: left;
-            margin-left: -40px;
+            margin-left: -50px;
+            padding: 0px 20px;
             line-height: 50px;
             color: $letterDarkGray;
           }
         }
         &__right {
-          float: right;
-          margin: 28px 40px 0 0;
-          padding: 0px 20px;
+          float: left;
+          margin-left: 15px;
           line-height: 40px;
-          background-color: $blue;
-          color: $white;
-          font-size: $letterSmall;
+          .send-button {
+            height: 50px;
+            width: 100px;
+            display: inline-block;
+            padding: 12px 20px;
+            color: $white;
+            background-color: $blue;
+            border: 0;
+            font-size: $letterMiddle;
+          }
         }
       }
     }
