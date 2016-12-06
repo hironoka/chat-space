@@ -14,7 +14,7 @@ class MessagesController < ApplicationController
       redirect_to :back
     else
       @message.errors.full_messages.each do |message|
-        flash[:alert] = message
+        flash.now[:alert] = message
       end
       render :index
     end
