@@ -9,7 +9,7 @@
           = @group.name
         .chat-group-member
           %span Member:
-          - @users.each do |user|
+          - @group.users.each do |user|
             = user.name
       .chat-header__right
         = link_to "Edit", edit_group_path(@group)

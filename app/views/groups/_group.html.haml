@@ -1,7 +1,8 @@
 %li.chat-groups__list
   .chat-group
-    .chat-group__name
-      %h2
-        = group.name
-    .chat-group__latest-message
-      %p testですこれはテストです
+    = link_to group_messages_path(group.id) do
+      .chat-group__name
+        %h2
+          = group.name
+      .chat-group__latest-message
+        %p testですこれはテストです
