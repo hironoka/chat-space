@@ -29,6 +29,9 @@
   .chat-groups {
     color: $white;
     background-color: $sideLightGray;
+    h2 {
+      color: $white;
+    }
     &__list {
       .chat-group {
         padding: 20px 20px 40px 20px;

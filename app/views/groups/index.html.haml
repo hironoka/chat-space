@@ -3,55 +3,11 @@
     = render partial: 'layouts/chat_side'
   .chat-main
     .chat-header
-      = render partial: 'layouts/chat_main_group'
+      .chat-header__left
+        .chat-group-name
+          %h2 sample
+        .chat-group-member
+          %span Member: aaa
     .chat-body
       %ul.chat-messages
-        %li.chat-messages__list
-          .chat-message
-            .chat-message__name-and-time
-              .user-name
-                %p hironokawashima
-              .time
-                %p 2016/11/11 09:00:00
-            .chat-message__message
-              %p おはようございます
-          .chat-message
-            .chat-message__name-and-time
-              .user-name
-                %p hironokawashima
-              .time
-                %p 2016/11/11 09:00:00
-            .chat-message__message
-              %p こんにちは
-          .chat-message
-            .chat-message__name-and-time
-              .user-name
-                %p hironokawashima
-              .time
-                %p 2016/11/11 09:00:00
-            .chat-message__message
-              %p こんばんは
-          .chat-message
-            .chat-message__name-and-time
-              .user-name
-                %p hironokawashima
-              .time
-                %p 2016/11/11 09:00:00
-            .chat-message__message
-              %p こんばんは
-          .chat-message
-            .chat-message__name-and-time
-              .user-name
-                %p hironokawashima
-              .time
-                %p 2016/11/11 09:00:00
-            .chat-message__message
-              %p こんばんは
     .chat-footer
-      .chat-footer__left
-        .message-form-area
-          %textarea{ placeholder: "  type a message", id: "message_form", rows: 1 }
-        .image_form
-          %i.fa.fa-image
-      .chat-footer__right
-        .send-button Send
