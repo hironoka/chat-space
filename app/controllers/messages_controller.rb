@@ -16,14 +16,13 @@ class MessagesController < ApplicationController
         format.html { redirect_to group_messages_path(@group) }
         format.json { render json: { body: @message.body,
                                      created_at: @message.created_at.strftime("%Y/%m/%d %H:%M:%S"),
-                                     name: @message.user.name,
-                                     error_message: @message.errors.full_messages } }
+                                     name: @message.user.name } }
       end
     else
-      @message.errors.full_messages.each do |message|
-        flash.now[:alert] = message
+      respond_to do |format|
+        format.html { redirect_to group_messages_path(@group) }
+        format.json { render json: { error: @message.errors.full_messages.first } }
       end
-      render :index
     end
   end
 

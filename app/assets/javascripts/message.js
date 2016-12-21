@@ -25,6 +25,15 @@ $(function() {
     $('input').removeAttr("disabled");
   }
 
+  function InsertErrorHTML(data) {
+    var error_message = "<div class='alert alert-alert'>"         +
+                          data.error                              +
+                        "</div>"
+                        console.log(error_message);
+    $('.flash-message').append(error_message);
+    $('input').removeAttr("disabled");
+  }
+
   $('.new_message').on('submit', function(e) {
     e.preventDefault();
     var textField = $('#message_form');
@@ -41,9 +50,18 @@ $(function() {
       dataType: "json"
     })
     .done(function(data) {
-      var html = InsertHTML(data);
-      $('.chat-messages').append(html);
-      textField.val('');
+      $('.alert').remove();
+      if(data.body==null) {
+        console.log("空だったら");
+        var error_html = InsertErrorHTML(data);//
+        $('.alert').append(error_html);//
+        textField.val('');
+      } else {
+        console.log("空じゃなかったら");
+        var html = InsertHTML(data);
+        $('.chat-messages').append(html);
+        textField.val('');
+      }
     });
   });
 });
