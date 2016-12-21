@@ -5,4 +5,8 @@
         %h2
           = group.name
       .chat-group__latest-message
-        %p testですこれはテストです
+        %p
+        - if group.messages.length > 0
+          = group.messages.last.body
+        - else
+          　
