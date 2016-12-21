@@ -52,12 +52,10 @@ $(function() {
     .done(function(data) {
       $('.alert').remove();
       if(data.body==null) {
-        console.log("空だったら");
-        var error_html = InsertErrorHTML(data);//
-        $('.alert').append(error_html);//
+        var error_html = InsertErrorHTML(data);
+        $('.alert').append(error_html);
         textField.val('');
       } else {
-        console.log("空じゃなかったら");
         var html = InsertHTML(data);
         $('.chat-messages').append(html);
         textField.val('');
