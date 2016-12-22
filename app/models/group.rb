@@ -6,4 +6,8 @@ class Group < ApplicationRecord
 
   validates :name, presence: true
 
+  def last_message
+    messages.last.body
+  end
+
 end
