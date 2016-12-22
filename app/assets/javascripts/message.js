@@ -29,7 +29,6 @@ $(function() {
     var error_message = "<div class='alert alert-alert'>"         +
                           data.error                              +
                         "</div>"
-                        console.log(error_message);
     $('.flash-message').append(error_message);
     $('input').removeAttr("disabled");
   }
@@ -41,7 +40,7 @@ $(function() {
 
     $.ajax({
       type: 'POST',
-      url:  './messages.json',
+      url:  './messages',
       data: {
         message: {
           body: message
@@ -51,15 +50,15 @@ $(function() {
     })
     .done(function(data) {
       $('.alert').remove();
-      if(data.body==null) {
-        var error_html = InsertErrorHTML(data);
-        $('.alert').append(error_html);
-        textField.val('');
+      if(data.body) {
+        InsertHTML(data);
       } else {
-        var html = InsertHTML(data);
-        $('.chat-messages').append(html);
-        textField.val('');
+        InsertErrorHTML(data);
       }
+      textField.val('');
+    })
+    .fail(function(data){
+      alert('エラーが発生しました');
     });
   });
 });
