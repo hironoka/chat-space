@@ -15,7 +15,7 @@ class MessagesController < ApplicationController
       respond_to do |format|
         format.html { redirect_to group_messages_path(@group) }
         format.json { render json: { body: @message.body,
-                                     created_at: @message.created_at.strftime("%Y/%m/%d %H:%M:%S"),
+                                     created_at: @message.time,
                                      name: @message.user.name } }
       end
     else
@@ -38,7 +38,6 @@ class MessagesController < ApplicationController
     :image,
     ).merge(
     user_id: current_user.id,
-    group_id: @group.id
     )
   end
 end

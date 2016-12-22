@@ -5,4 +5,8 @@ class Message < ApplicationRecord
 
   validates :body, presence: true
 
+  def time
+    created_at.strftime("%Y-%m-%d %H:%M:%S")
+  end
+
 end
