@@ -9,7 +9,7 @@ class MessagesController < ApplicationController
   end
 
   def create
-    @message = Message.new(message_params)
+    @message = @group.messages.new(message_params)
     @messages = @group.messages
     if @message.save
       respond_to do |format|
@@ -37,7 +37,7 @@ class MessagesController < ApplicationController
     :body,
     :image,
     ).merge(
-    user_id: current_user.id,
+    user_id: current_user.id
     )
   end
 end
