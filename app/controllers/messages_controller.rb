@@ -9,15 +9,15 @@ class MessagesController < ApplicationController
   end
 
   def create
-    @message = Message.new(message_params)
+    @message = current_user.messages.new(message_params)
     @messages = @group.messages
     if @message.save
-      redirect_to group_messages_path(@group)
+      render json: { body: @message.body,
+                     time: @message.time,
+                     name: @message.user.name }
     else
-      @message.errors.full_messages.each do |message|
-        flash.now[:alert] = message
-      end
-      render :index
+      render json: { error: @message.errors.full_messages.first }
+
     end
   end
 
@@ -31,8 +31,8 @@ class MessagesController < ApplicationController
     params.require(:message).permit(
     :body,
     :image,
-    :user_id,
-    :group_id
+    ).merge(
+    group_id: @group.id
     )
   end
 end

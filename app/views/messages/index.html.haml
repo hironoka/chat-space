@@ -18,8 +18,6 @@
         = render @messages
     .chat-footer
       = form_for [@group, @message] do |f|
-        = f.hidden_field :user_id, value: current_user.id
-        = f.hidden_field :group_id, value: @group.id
         .chat-footer__left
           .message-form-area
             = f.text_area :body, placeholder: "type a message", id: "message_form", rows: 1

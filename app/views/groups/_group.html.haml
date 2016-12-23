@@ -5,4 +5,6 @@
         %h2
           = group.name
       .chat-group__latest-message
-        %p testですこれはテストです
+        %p
+        - if group.messages.present?
+          = group.last_message
