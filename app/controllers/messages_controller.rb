@@ -12,17 +12,12 @@ class MessagesController < ApplicationController
     @message = @group.messages.new(message_params)
     @messages = @group.messages
     if @message.save
-      respond_to do |format|
-        format.html { redirect_to group_messages_path(@group) }
-        format.json { render json: { body: @message.body,
-                                     created_at: @message.time,
-                                     name: @message.user.name } }
-      end
+      render json: { body: @message.body,
+                     time: @message.time,
+                     name: @message.user.name } 
     else
-      respond_to do |format|
-        format.html { redirect_to group_messages_path(@group) }
-        format.json { render json: { error: @message.errors.full_messages.first } }
-      end
+      render json: { error: @message.errors.full_messages.first }
+
     end
   end
 

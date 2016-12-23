@@ -10,7 +10,7 @@ $(function() {
                          "</div>"                                 +
                         "<div class='time'>"                      +
                           "<p>"                                   +
-                            data.created_at                       +
+                            data.time                             +
                           "</p>"                                  +
                         "</div>"                                  +
                       "</div>"                                    +
