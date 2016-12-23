@@ -9,12 +9,12 @@ class MessagesController < ApplicationController
   end
 
   def create
-    @message = @group.messages.new(message_params)
+    @message = current_user.messages.new(message_params)
     @messages = @group.messages
     if @message.save
       render json: { body: @message.body,
                      time: @message.time,
-                     name: @message.user.name } 
+                     name: @message.user.name }
     else
       render json: { error: @message.errors.full_messages.first }
 
@@ -32,7 +32,7 @@ class MessagesController < ApplicationController
     :body,
     :image,
     ).merge(
-    user_id: current_user.id
+    group_id: @group.id
     )
   end
 end
