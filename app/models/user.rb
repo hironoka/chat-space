@@ -11,4 +11,8 @@ class User < ApplicationRecord
   validates :name,
             :email, presence: true
 
+  def self.list_user(name, current_user)
+    where('name LIKE(?)', "#{name}%").where.not(id: current_user.id)
+  end
+
 end
