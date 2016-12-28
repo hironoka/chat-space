@@ -2,7 +2,7 @@ $(function() {
 
 //(1)検索した結果のユーザー候補を表示→②追加ボタン
   function searchUserListHTML(id, name) {
-    var html = '<div class="chat-group-user clearfix">' +
+    var html = '<div class="chat-group-user clearfix chat-group-user-add">' +
                  '<p class="chat-group-user__name">' +
                    name +
                  '</p>' +
@@ -27,7 +27,7 @@ $(function() {
 
   //①インクリメンタルサーチ作動→(1)
   $(document).on('keyup', '#user-search-field', function() {
-
+    $('.chat-group-user-add').hide();
     $.ajax({
       type: 'GET',
       url: '/users.json',
