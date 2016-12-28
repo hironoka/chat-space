@@ -58,6 +58,5 @@ $(function() {
   //③削除ボタンを押した時
   $(document).on('click', '.chat-group-user__btn--remove', function(){
     $(this).parent().remove();
-    var id = $(this).data('userId');
   });
 });
