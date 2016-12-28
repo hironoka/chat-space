@@ -147,7 +147,7 @@ ja:
     submit:
       create: Save
       submit: 保存する
-      update: 更新する
+      update: Save
   number:
     currency:
       format:
