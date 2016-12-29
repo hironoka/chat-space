@@ -13,11 +13,11 @@ class MessagesController < ApplicationController
     @messages = @group.messages
     if @message.save
       render json: { body: @message.body,
+                     image: @message.image,
                      time: @message.time,
                      name: @message.user.name }
     else
       render json: { error: @message.errors.full_messages.first }
-
     end
   end
 
