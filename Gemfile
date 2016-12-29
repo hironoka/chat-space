@@ -45,6 +45,7 @@ group :development, :test do
   gem 'byebug'
   gem 'rspec-rails'
   gem 'factory_girl_rails', "~> 4.4.1"
+  gem 'carrierwave'
 end
 
 group :development do
@@ -61,6 +62,5 @@ group :test do
 end
 
 gem 'pry-rails'
-
 
 gem 'rails-controller-testing'
