@@ -18,6 +18,7 @@ $(function() {
                         "<P>"                                     +
                          data.body                                +
                         "</p>"                                    +
+                        "<img src=" + data.image.image.url + ">" +
                       "</div>"                                    +
                     "</div>"                                      +
                   "</li>";
@@ -37,16 +38,16 @@ $(function() {
     e.preventDefault();
     var textField = $('#message_form');
     var message = textField.val();
+    var form = $('#new_message')[0];
+    var formData = new FormData(form);
 
     $.ajax({
       type: 'POST',
       url:  './messages',
-      data: {
-        message: {
-          body: message
-        }
-      },
-      dataType: "json"
+      data: formData,
+      dataType: "json",
+      processData: false,  // jQuery がデータを処理しないよう(文字列に変換されるのを避ける)指定
+      contentType: false   // jQuery が contentType を設定しないよう指定(送信するデータをFormDataにする場合必要)
     })
     .done(function(data) {
       $('.alert').remove();
