@@ -2,6 +2,7 @@ ja:
   attributes:
     body: メッセージ
     name:  名前
+    image: ""
     email:  メールアドレス
     password:  パスワード
     password_confirmation: 確認用パスワード
