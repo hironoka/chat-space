@@ -11,13 +11,19 @@ class MessagesController < ApplicationController
   def create
     @message = current_user.messages.new(message_params)
     @messages = @group.messages
-    if @message.save
-      render json: { body: @message.body,
-                     image: @message.image,
-                     time: @message.time,
-                     name: @message.user.name }
-    else
-      render json: { error: @message.errors.full_messages.first }
+    @groups = current_user.groups
+    respond_to do |format|
+      if @message.save
+        format.html { render :index }
+        format.json { render json: {
+                       body: @message.body,
+                       image: @message.image,
+                       time: @message.time,
+                       name: @message.user.name }}
+      else
+        format.html { rednder :index }
+        format.json { render json: { error: @message.errors.full_messages.first }}
+      end
     end
   end
 
