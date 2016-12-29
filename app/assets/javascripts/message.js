@@ -1,5 +1,17 @@
 $(function() {
   function InsertHTML(data) {
+    if (data.body) {
+      var bodyHTML = "<P>" + data.body + "</p>";
+    } else {
+      var bodyHTML = '';
+    }
+
+    if (data.image.image.url) {
+      var imageHTML = '<img src="' + data.image.image.url + '">';
+    } else {
+      var imageHTML = '';
+    }
+
     var message = "<li class='chat-messages__list'>"              +
                     "<div class='chat-message'>"                  +
                       "<div class='chat-message__name-and-time'>" +
@@ -15,13 +27,12 @@ $(function() {
                         "</div>"                                  +
                       "</div>"                                    +
                       "<div class='chat-message__message'>"       +
-                        "<P>"                                     +
-                         data.body                                +
-                        "</p>"                                    +
-                        "<img src=" + data.image.image.url + ">" +
+                        bodyHTML                                  +
+                        imageHTML                                 +
                       "</div>"                                    +
                     "</div>"                                      +
                   "</li>";
+
     $('.chat-messages').append(message);
     $('input').removeAttr("disabled");
   }
@@ -37,7 +48,8 @@ $(function() {
   $('.new_message').on('submit', function(e) {
     e.preventDefault();
     var textField = $('#message_form');
-    var message = textField.val();
+    var fileField = $('#message_image');
+
     var form = $('#new_message')[0];
     var formData = new FormData(form);
 
@@ -57,6 +69,7 @@ $(function() {
         InsertErrorHTML(data);
       }
       textField.val('');
+      fileField.val('');
     })
     .fail(function(data){
       alert('エラーが発生しました');
