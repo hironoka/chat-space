@@ -22,6 +22,8 @@
           .message-form-area
             = f.text_area :body, placeholder: "type a message", id: "message_form", rows: 1
           .image_form
-            %i.fa.fa-image
+            %i
+              = f.label :image, class: "fa fa-image"
+              = f.file_field :image, class: "image_form_button"
         .chat-footer__right
           = f.submit value: "Send", class: "send-button"
