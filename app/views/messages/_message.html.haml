@@ -6,4 +6,7 @@
       .time
         %p= message.time
     .chat-message__message
-      %p= message.body
+      - if message.body?
+        %p= message.body
+      - if message.image?
+        = image_tag(message.image)

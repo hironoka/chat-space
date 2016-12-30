@@ -41,7 +41,7 @@ html {
         .chat-body  {
           margin-top: 100px;
           .chat-messages {
-            padding: 10px 40px 30px 40px;
+            padding: 10px 40px 100px 40px;
             &__list {
               .chat-message {
                 padding: 20px 0;
@@ -98,6 +98,9 @@ html {
               padding: 0px 20px;
               line-height: 50px;
               color: $letterDarkGray;
+              .image_form_button {
+                display: none;
+              }
             }
           }
           &__right {
