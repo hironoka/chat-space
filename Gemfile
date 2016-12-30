@@ -46,6 +46,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'factory_girl_rails', "~> 4.4.1"
   gem 'carrierwave'
+  gem 'fog'
 end
 
 group :development do
