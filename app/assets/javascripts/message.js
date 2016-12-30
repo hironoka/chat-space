@@ -6,8 +6,8 @@ $(function() {
       var bodyHTML = '';
     }
 
-    if (data.image.image.url) {
-      var imageHTML = '<img src="' + data.image.image.url + '">';
+    if (data.image) {
+      var imageHTML = '<img src="' + data.image + '">';
     } else {
       var imageHTML = '';
     }

@@ -17,7 +17,7 @@ class MessagesController < ApplicationController
         format.html { render :index }
         format.json { render json: {
                        body: @message.body,
-                       image: @message.image,
+                       image: @message.image.url,
                        time: @message.time,
                        name: @message.user.name }}
       else
