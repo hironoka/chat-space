@@ -47,21 +47,24 @@ $(function() {
 
 //自動更新機能
   setInterval( function(data) {
-    $('.chat-messages__list').remove();
-    $.ajax({
-      type: 'GET',
-      url: './messages',
-      dataType: "json",
-    })
-    .done(function(data) {
-      var html = '';
-      $.each(data, function(i, data) {
-        InsertHTML(data);
+    if (messageLength != 0) {  //投稿が存在しない時には自動更新を行わない
+      $('.chat-messages__list').remove();
+      var messageLength = $('.chat-messages__list').length;
+      $.ajax({
+        type: 'GET',
+        url: './messages',
+        dataType: "json",
       })
-    })
-    .fail(function(data){
-      alert('エラーが発生しました');
-    });
+      .done(function(data) {
+        var html = '';
+        $.each(data, function(i, data) {
+          InsertHTML(data);
+        })
+      })
+      .fail(function(data){
+        alert('エラーが発生しました');
+      });
+    }
   }
   , 5000);
 
