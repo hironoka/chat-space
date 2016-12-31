@@ -45,6 +45,27 @@ $(function() {
     $('input').removeAttr("disabled");
   }
 
+//自動更新機能
+  setInterval( function(data) {
+    $('.chat-messages__list').remove();
+    $.ajax({
+      type: 'GET',
+      url: './messages',
+      dataType: "json",
+    })
+    .done(function(data) {
+      var html = '';
+      $.each(data, function(i, data) {
+        InsertHTML(data);
+      })
+    })
+    .fail(function(data){
+      alert('エラーが発生しました');
+    });
+  }
+  , 5000);
+
+//メッセージ投稿時の非同期通信機能
   $('.new_message').on('submit', function(e) {
     e.preventDefault();
     var textField = $('#message_form');
