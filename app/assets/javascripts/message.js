@@ -45,6 +45,38 @@ $(function() {
     $('input').removeAttr("disabled");
   }
 
+//自動スクロール機能
+  function automaticScroll() {
+    $('body').delay(0).animate( {
+      scrollTop: $(document).height()
+    }, 0);
+  }
+
+//自動更新機能
+  setInterval( function(data) {
+    var messageLength = $('.chat-messages__list').length;
+    if (messageLength != 0) {  //投稿が存在しない時には自動更新を行わない
+      $('.chat-messages__list').remove();
+      $.ajax({
+        type: 'GET',
+        url: './messages',
+        dataType: "json",
+      })
+      .done(function(data) {
+        var html = '';
+        $.each(data, function(i, data) {
+          InsertHTML(data);
+        })
+        automaticScroll();
+      })
+      .fail(function(data){
+        alert('エラーが発生しました');
+      });
+    }
+  }
+  , 5000);
+
+//メッセージ投稿時の非同期通信機能
   $('.new_message').on('submit', function(e) {
     e.preventDefault();
     var textField = $('#message_form');
@@ -70,6 +102,7 @@ $(function() {
       }
       textField.val('');
       fileField.val('');
+      automaticScroll();
     })
     .fail(function(data){
       alert('エラーが発生しました');
