@@ -54,10 +54,9 @@ $(function() {
 
 //自動更新機能
   setInterval( function(data) {
-
+    var messageLength = $('.chat-messages__list').length;
     if (messageLength != 0) {  //投稿が存在しない時には自動更新を行わない
       $('.chat-messages__list').remove();
-      var messageLength = $('.chat-messages__list').length;
       $.ajax({
         type: 'GET',
         url: './messages',
