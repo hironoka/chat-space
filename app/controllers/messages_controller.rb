@@ -3,19 +3,9 @@ class MessagesController < ApplicationController
    before_action :set_group
 
   def index
-    @messages = @group.messages
+    @messages = @group.messages.includes(:user)
     @message = Message.new
     @groups = current_user.groups
-    respond_to do |format|
-      format.html { render :index }
-      messages = @messages.map do |message|
-      { body: message.body,
-        image: message.image.url,
-        time: message.time,
-        name: message.user.name }
-      end
-      format.json { render json: messages }
-    end
   end
 
   def create
