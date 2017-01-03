@@ -1,8 +1,9 @@
 .chat-side {
   float: left;
-  height: 100vh;
+  height: 100%;
   width: 300px;
   background-color: $sideLightGray;
+  position: fixed;
   .chat-user {
     @include clearfix();
     width: 300px;
