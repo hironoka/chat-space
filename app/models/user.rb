@@ -8,8 +8,7 @@ class User < ApplicationRecord
   has_many :users_groups
   has_many :messages
 
-  validates :name,
-            :email, presence: true
+  validates :name, :email, presence: true
 
   def self.list_user(name, current_user)
     where('name LIKE(?)', "#{name}%").where.not(id: current_user.id)

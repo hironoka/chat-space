@@ -1,4 +1,8 @@
 .flash-message {
+  width: 100%;
+  z-index: 1;
+  position: fixed;
+
   .alert-error {
       background-color: $red;
       border-color: #eed3d7;

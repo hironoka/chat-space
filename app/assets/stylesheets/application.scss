@@ -1,9 +1,9 @@
-@import "./reset";
+@import "./modules/reset";
 @import "./mixin/clearfix";
 @import "./config/variables";
 @import "font-awesome";
-@import "custom";
-@import "user";
-@import "group";
-@import "./side";
-@import "./main";
+@import "./modules/custom";
+@import "./modules/user";
+@import "./modules/group";
+@import "./modules/side";
+@import "./modules/main";

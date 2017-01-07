@@ -11,9 +11,7 @@ class Message < ApplicationRecord
   end
 
   def avoid_empty_message
-    if body.blank? && image.blank?
-      errors.add(:body, "を入力してください")
-    end
+    errors.add(:body, "を入力してください") if body.blank? && image.blank?
   end
 
 end
