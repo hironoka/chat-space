@@ -48,7 +48,7 @@ ActiveRecord::Schema.define(version: 20161219150641) do
 
   create_table "users_groups", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer "user_id",  null: false
-    t.integer "group_id"
+    t.integer "group_id", null: false
     t.index ["group_id"], name: "index_users_groups_on_group_id", using: :btree
     t.index ["user_id"], name: "index_users_groups_on_user_id", using: :btree
   end
