@@ -34,6 +34,10 @@ gem 'devise'
 gem 'carrierwave', '0.11.2'
 gem 'fog'
 
+gem 'pry-rails'
+
+gem 'rails-controller-testing'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -50,6 +54,12 @@ group :development, :test do
   gem 'byebug'
   gem 'rspec-rails'
   gem 'factory_girl_rails', "~> 4.4.1"
+
+  gem 'capistrano'
+  gem 'capistrano-rbenv'
+  gem 'capistrano-bundler'
+  gem 'capistrano-rails'
+  gem 'capistrano3-unicorn'
 end
 
 group :development do
@@ -64,7 +74,3 @@ end
 group :test do
   gem 'faker'
 end
-
-gem 'pry-rails'
-
-gem 'rails-controller-testing'
