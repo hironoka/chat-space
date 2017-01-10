@@ -55,7 +55,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'factory_girl_rails', "~> 4.4.1"
 
-  gem 'capistrano', '3.4.0'
+  gem 'capistrano', '3.6.1'
   gem 'capistrano-rbenv'
   gem 'capistrano-bundler'
   gem 'capistrano-rails'
