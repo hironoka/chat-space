@@ -1,5 +1,5 @@
 # capistranoのバージョン固定
-lock '3.7.1'
+lock '3.4.0'
 
 set :application, 'chat-space'
 
@@ -26,6 +26,8 @@ set :rbenv_ruby, '2.3.1'
 
 #出力するログのレベル。
 set :log_level, :debug
+
+set :bundle_without, %w{development test deployment}.join(' ')
 
 namespace :deploy do
   desc 'Restart application'
